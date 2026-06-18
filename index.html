@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Creative Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">PORTFOLIO</div>
+        <nav>
+            <a href="#home" class="active">Home</a>
+            <a href="#projects">Projects</a>
+        </nav>
+    </header>
+
+    <section id="home" class="hero-section">
+        <div class="geo-shape shape-circle-lg"></div>
+        <div class="geo-shape shape-circle-sm"></div>
+        <div class="geo-shape shape-square-rotate"></div>
+        <div class="geo-shape shape-dots"></div>
+
+        <div class="hero-content">
+            <h1>포토 폴리오에 대한 제작</h1>
+            <p>언제나 창의적인 생각과 특별한 감성을 가득 담아냅니다.<br> 굿즈,부산여행,AI 웹사이트</p>
+            <a href="#projects" class="cta-btn">프로젝트 보기</a>
+        </div>
+    </section>
+
+    <section id="projects" class="content-section">
+        <h2>Featured Projects</h2>
+        
+        <div class="card-grid">
+            <div class="card" onclick="openProject(0)">
+                <div class="card-img-container" style="background-color: #e3fafc;">
+                    <img src="images/스크린샷 2026-06-05 160728.png" alt="프로젝트 01" class="card-img" onerror="this.style.display='none';">
+                    <div class="placeholder-text" style="color: #0b7285;">Minimal portfolio 예시 이미지 자리</div>
+                </div>
+                <h3>부산 맛집에 대한 소개에 </h3>
+                <p>부산에 대한 맛집을 자세히 하게 소개를 하며 부산의 관광을 재미있게 소개합니다.</p>
+            </div>
+
+            <div class="card" onclick="openProject(1)">
+                <div class="card-img-container" style="background-color: #eef2ff;">
+                    <img src="images/스크린샷 2026-06-05 120609.png" alt="프로젝트 02" class="card-img" onerror="this.style.display='none';">
+                    <div class="placeholder-text" style="color: #e7b80e;">UX user flow 다이어그램 자리</div>
+                </div>
+                <h3>죽에 대한 캐릭터 소개</h3>
+                <p>죽에 대한 보리에 대한 소개를 하며 자세히 설명을 가능을 하며 마스코트 캐릭터를 설명합니다.</p>
+            </div>
+
+            <div class="card" onclick="openProject(2)">
+                <div class="card-img-container" style="background-color: #fff4e6;">
+                    <img src="images/스크린샷 2026-06-05 155730.png" alt="프로젝트 03" class="card-img" onerror="this.style.display='none';">
+                    <div class="placeholder-text" style="color: #d9480f;">데이터 대시보드 시각화 자리</div>
+                </div>
+                <h3>죽에 대한 마스코트에 대한 설명</h3>
+                <p>필요한 정보만 모아 한눈에 파악할 수 있는 대시보드 형태입니다.</p>
+            </div>
+
+            <div class="card" onclick="openProject(3)">
+                <div class="card-img-container" style="background-color: #ebfbee;">
+                    <img src="images/스크린샷 2026-06-05 120632.png" alt="프로젝트 04" class="card-img" onerror="this.style.display='none';">
+                    <div class="placeholder-text" style="color: #2b8a3e;">Brand identity 디자인 캐릭터 자리</div>
+                </div>
+                <h3>AI.AAP 이라는 웹사이트 제작</h3>
+                <p>AI.AAP에 대한 사이트를 소개로 AI로 만들어낸 웹사이트를 소개합니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="modalOverlay" class="modal-overlay" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div class="modal-layout">
+                <div id="modalImgBox" class="modal-img-box">
+                    <img id="modalMainImg" src="" alt="상세 이미지" style="width:100%; height:100%; object-fit:cover; display:none;">
+                    <span id="modalPlaceholderText">이미지 로딩 중...</span>
+                </div>
+                <div class="modal-text-box">
+                    <h2 id="modalTitle">프로젝트 제목</h2>
+                    <p id="modalDesc">여기에 프로젝트의 상세 내용 설명이 들어갑니다.</p>
+                    <a id="modalLink" href="#" target="_blank" class="visit-btn">웹사이트 바로가기</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Copyright 2026. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const projectData = [
+            { title: "부산에 대한 맛집을 검색해드려요!", desc: "부산에 대한 맛집을 youtube.shorts으로 자세히 소개가 가능합니다. 부산에 대한 맛집을 자세히 소개해 드릴게요", link: "https://youtube.com/shorts/ZNsPWckmT_s?si=RPS8qruIV-h2XieN", bgColor: "#e3fafc", imgUrl: "images/스크린샷 2026-06-05 160728.png" },
+            { title: "죽에 대한 캐릭터 소개", desc: "죽에 대한 캐릭터에 자세히 스토리 자기 소개를 확인해주세요 캐릭터에 대한 자세히를 알아보아요 다른 죽에 대한 가게 소개도 나쁘지 않아요! 어서 다른 죽 스토리를 확인해 봐요'본죽으로 GO GO!!'", link: "https://docs.google.com/document/d/16w989F2I2DhC_GqqCX6jD9uaF1iLptq-fcQgb-jQfWQ/edit?usp=sharing", bgColor: "#eef2ff", imgUrl: "images/스크린샷 2026-06-05 120609.png" },
+            { title: "죽에 대한 굿즈에 소개를 합니다.", desc: "죽에 대한 굿즈에 소개를 하며 굿즈에 대한 자세한 스토리 그리고 죽에 대한 친근감을 좀더 다가운 방향으로 해주세요.", link: "https://docs.google.com/document/d/16w989F2I2DhC_GqqCX6jD9uaF1iLptq-fcQgb-jQfWQ/edit?usp=sharing", bgColor: "#fff4e6", imgUrl: "images/스크린샷 2026-06-05 155730.png" },
+            // ⚡ 3번 데이터(프로젝트 04)는 클릭 시 아래 link 주소로 바로 창이 열립니다. (원하시는 주소로 변경 가능)
+            { title: "프로젝트 04 이동", desc: "", link: "https://millgramprisonlibrary.aiapp.link/?v=ver-469be99e-2557-4340-b187-95b5433833fe", bgColor: "#ebfbee", imgUrl: "images/project4.png" }
+        ];
+
+        function openProject(index) {
+            // 💡 4번째 프로젝트(인덱스 3)일 때는 팝업을 띄우지 않고 사이트로 바로 이동시킵니다.
+            if (index === 3) {
+                window.open(projectData[index].link, '_blank');
+                return;
+            }
+
+            const data = projectData[index];
+            if (!data) return;
+
+            document.getElementById('modalTitle').innerText = data.title;
+            document.getElementById('modalDesc').innerText = data.desc;
+            document.getElementById('modalLink').href = data.link;
+            
+            const imgBox = document.getElementById('modalImgBox');
+            const mainImg = document.getElementById('modalMainImg');
+            const placeholder = document.getElementById('modalPlaceholderText');
+            imgBox.style.backgroundColor = data.bgColor;
+            
+            if(data.imgUrl) {
+                mainImg.src = data.imgUrl;
+                mainImg.style.display = 'block';
+                placeholder.style.display = 'none';
+            } else {
+                mainImg.style.display = 'none';
+                placeholder.style.display = 'block';
+            }
+            
+            const overlay = document.getElementById('modalOverlay');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closeModal() {
+            const overlay = document.getElementById('modalOverlay');
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto'; 
+        }
+    </script>
+</body>
+</html>
